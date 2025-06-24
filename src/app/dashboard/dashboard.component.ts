@@ -15,13 +15,12 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      this.user = JSON.parse(storedUser);
-    } else {
-      this.router.navigate(['/login']);
-    }
+  if (typeof window !== 'undefined' && localStorage.getItem('user')) {
+    this.user = JSON.parse(localStorage.getItem('user')!);
+  } else {
+    this.router.navigate(['/login']);
   }
+}
 
   logout(): void {
     localStorage.removeItem('user');
