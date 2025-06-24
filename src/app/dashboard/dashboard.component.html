@@ -1,0 +1,54 @@
+<div class="dashboard-wrapper">
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="https://via.placeholder.com/60" alt="Profile" class="profile-img" />
+      <h3>Nowfal Nazar</h3>
+      <p>Web Developer</p>
+    </div>
+    <nav class="nav">
+      <a routerLink="/dashboard" routerLinkActive="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a routerLink="/profile" routerLinkActive="active"><i class="fas fa-user"></i> Profile</a>
+      <a routerLink="/edit-profile" routerLinkActive="active"><i class="fas fa-edit"></i> Edit Profile</a>
+      <a routerLink="/change-password" routerLinkActive="active"><i class="fas fa-key"></i> Change Password</a>
+      <a (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="dashboard-header">
+      <h1>Dashboard</h1>
+      <input type="text" class="search-bar" placeholder="Search project...">
+    </header>
+
+    <div class="card-container">
+      <div class="dashboard-card yellow">
+        <i class="fas fa-users"></i>
+        <div>
+          <h3>Current Users</h3>
+          <p>102,018 / 200,450</p>
+        </div>
+      </div>
+      <div class="dashboard-card blue">
+        <i class="fas fa-comments"></i>
+        <div>
+          <h3>Messages</h3>
+          <p>2 messages</p>
+        </div>
+      </div>
+      <div class="dashboard-card green">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <h3>Mails</h3>
+          <p>2 mails</p>
+        </div>
+      </div>
+      <div class="dashboard-card red">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div>
+          <h3>Feedback</h3>
+          <p>20 feedbacks</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
