@@ -65,6 +65,32 @@ app.post('/api/login', (req, res) => {
   );
 });
 
+app.post('/api/update-profile', (req, res) => {
+  const { name, email } = req.body;
+
+  if (!name || !email) {
+    return res.status(400).json({ success: false, message: 'Name and email are required' });
+  }
+
+  db.query(
+    'UPDATE users SET name = ? WHERE email = ?',
+    [name, email],
+    (err, result) => {
+      if (err) {
+        console.error('MySQL Error:', err);
+        return res.status(500).json({ success: false, message: 'Update failed' });
+      }
+
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+
+      res.json({ success: true, message: 'Profile updated successfully' });
+    }
+  );
+});
+
+
 app.listen(4000, () => {
   console.log('🚀 Server running on http://localhost:4000');
 });
